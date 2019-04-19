@@ -9,7 +9,6 @@ decorator==4.4.0
 docutils==0.14
 enum34==1.1.6
 funcsigs==1.0.2
-futures==3.2.0
 gast==0.2.2
 graphviz==0.10.1
 grpcio==1.19.0
@@ -53,3 +52,4 @@ textblob==0.15.3
 traitlets==4.3.2
 wcwidth==0.1.7
 Werkzeug==0.15.2
+futures==3.2.0
