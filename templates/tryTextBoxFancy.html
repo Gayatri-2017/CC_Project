@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<head>
+    <style>
+    .input {
+	
+	/* // needs to be relative so the :focus span is positioned correctly */
+	position:relative;
+	
+	/* // bigger font size for demo purposes */
+	font-size: 1.5em;
+	
+	/* // the border gradient */
+	background: linear-gradient(21deg, #10abff, #1beabd);
+	
+	/* // the width of the input border */
+	padding: 3px;
+	
+	/* // we want inline fields by default */
+	display: inline-block;
+	
+	/* // we want rounded corners no matter the size of the field */
+	border-radius: 90em;
+	
+	/* // style of the actual input field */
+	/* *:not(span) {
+		position: relative;
+		display: inherit;
+		border-radius: inherit;
+		margin: 0;
+		border: none;
+		outline: none;
+		padding: 0 .325em;
+		z-index: 1; 
+        /* // needs to be above the :focus span */
+		
+		/* // summon fancy shadow styles when focussed */
+		&:focus + span {
+			opacity: 1;
+			transform: scale(1);
+		}
+	} */
+	
+	/* // we don't animate box-shadow directly as that can't be done on the GPU, only animate opacity and transform for high performance animations. */
+	span {
+		
+		transform: scale(.993, .94); 
+        /* // scale it down just a little bit */
+		transition: transform .5s, opacity .25s;
+		opacity: 0; 
+        /* // is hidden by default */
+		
+		position:absolute;
+		z-index: 0; 
+        /* // needs to be below the field (would block input otherwise) */
+		margin:4px; 
+        /* // a bit bigger than .input padding, this prevents background color pixels shining through */
+		left:0;
+		top:0;
+		right:0;
+		bottom:0;
+		border-radius: inherit;
+		pointer-events: none; 
+        /* // this allows the user to click through this element, as the shadow is rather wide it might overlap with other fields and we don't want to block those. */
+		
+		/* // fancy shadow styles */
+		box-shadow: inset 0 0 0 3px #fff,
+			0 0 0 4px #fff,
+			3px -3px 30px #1beabd, 
+			-3px 3px 30px #10abff;
+	}
+	
+}
+
+html {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	line-height:1.5;
+	font-size:1em;
+}
+
+body {
+	text-align: center;
+	display:flex;
+	align-items: center;
+	justify-content: center;
+}
+
+html, body {
+	height:100%;
+}
+
+input {
+	/* font-family: inherit; */
+    font-family: 'Permanent Marker', cursive;
+    font-size: 40px;
+	line-height:inherit;
+	color:#2e3750;
+	min-width:12em;
+}
+
+::placeholder {
+	color:#cbd0d5;
+}
+
+html::after {
+	content:'';
+	background: linear-gradient(21deg, #10abff, #1beabd);
+	height:3px;
+	width:100%;
+	position:absolute;
+	left:0;
+	top:0;
+}
+
+button {
+    font-family: 'Permanent Marker', cursive;
+    font-size: 40px;
+    color: #ffffff;
+	outline: none;
+	border: none;
+	background: transparent;
+}
+
+button:hover {
+	cursor: pointer;
+    color: #000000;
+    
+}
+
+.divclass {
+    font-family: 'Permanent Marker', cursive;
+    font-size: 40px;
+}
+    </style>
+</head>
+<body>
+
+	<div class="container divclass"; style="width:80%"; font-size: 40px;>
+		{% with messages = get_flashed_messages() %}
+		  {% if messages %}
+			{% for message in messages %}
+			<div class="alert alert-warning alert-dismissible" role="alert">
+			<!-- <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button> -->
+			{{message}}
+			</div>
+		  {% endfor %}
+		  {% endif %}
+		{% endwith %}
+		
+		{% block body %}{% endblock %}
+		</div>
+
+<form method="POST">
+        
+    <div class="divclass">
+        This is a webapp for replacing words in a given sentence with their synonyms.
+        <br>
+        Have Fun!!
+        <br>
+    </div>
+    <br/> <br>
+	<span class="input">
+		<input type="textbox" name="textbox" placeholder="Enter A Sentence">
+        <span></span>
+        
+        	
+    </span>
+    <br>
+        <br>
+    <span class="input">
+        <button type="submit" name="submit" >
+            Submit
+        </button>
+    </span>
+    
+</form>	
+
+
+</body>
