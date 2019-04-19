@@ -1,5 +1,8 @@
 {
     "python.pythonPath": "env/bin/python",
     "appService.defaultWebAppToDeploy": "/subscriptions/98342440-5782-4ca3-9036-c2e72657d59c/resourceGroups/appsvc_rg_linux_centralus/providers/Microsoft.Web/sites/aynsyn",
-    "appService.deploySubpath": ""
+    "appService.deploySubpath": "",
+    "appService.zipIgnorePattern": [
+        ".vscode{,/**}"
+    ]
 }
