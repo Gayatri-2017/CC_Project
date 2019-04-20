@@ -6,7 +6,7 @@ Created on Tue Aug 02 11:59:10 2016
 """
 
 ##### Antonyms #####
-
+nltk.download()
 from nltk.corpus import wordnet as wn
 
 def replace(word, pos=None):
