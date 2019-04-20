@@ -1,5 +1,7 @@
 from flask import Flask, render_template, request, flash
-import area
+import Synonyms
+import Antonyms
+
 # from datetime import datetime
 # import re
 #app = Flask(__name__)
@@ -38,7 +40,12 @@ def login_page():
                 # apa = Synonyms.helloworld()
                 # print(apa)
                 # flash("Hi")
-                out = area.area(inp)
+                out = list(Synonyms.synonyms(inp))
+                # print(out[0])
+                flash("Replacing with Synonyms")
+                flash(out[0])
+                out = " ".join(Antonyms.replace_negations(inp.split()))
+                flash("Replacing 'not + word' with antonyms")
                 flash(out)
             else:
                 error = "Enter Text."
