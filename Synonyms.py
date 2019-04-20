@@ -6,8 +6,10 @@ Created on Tue Aug 02 11:38:04 2016
 
 ###### Synonyms ######
 import nltk
+nltk.download()
 from nltk.corpus import wordnet as wn
 import textblob
+textblob.download()
 from textblob import TextBlob
 
 def helloworld():
