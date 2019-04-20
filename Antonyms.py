@@ -36,5 +36,5 @@ def replace_negations(sent):
       i += 1
     return words
 
-# sent = "I am not happy"
+# sent = "i am not happy"
 # print (" ".join(replace_negations(sent.split())))

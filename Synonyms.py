@@ -53,5 +53,5 @@ def synonyms(ask):
             for k in range(3):  
                 yield (ask.replace(i,d[j][k]))
  
-# input = "I am happy"
+# input = "i am not happy"
 # print (list(synonyms(input)))
