@@ -6,7 +6,7 @@ Created on Tue Aug 02 11:59:10 2016
 """
 
 ##### Antonyms #####
-
+nltk.download()
 from nltk.corpus import wordnet as wn
 
 def replace(word, pos=None):
@@ -36,5 +36,10 @@ def replace_negations(sent):
       i += 1
     return words
 
+<<<<<<< HEAD
 # sent = "i am not happy"
 # print (" ".join(replace_negations(sent.split())))
+=======
+# sent = "I am not happy"
+# print (" ".join(replace_negations(sent.split())))
+>>>>>>> 09b944fe034484ca1945b9bae3231cdbff08f068

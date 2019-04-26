@@ -6,8 +6,10 @@ Created on Tue Aug 02 11:38:04 2016
 
 ###### Synonyms ######
 import nltk
+nltk.download()
 from nltk.corpus import wordnet as wn
 import textblob
+textblob.download()
 from textblob import TextBlob
 
 def helloworld():
@@ -53,5 +55,10 @@ def synonyms(ask):
             for k in range(3):  
                 yield (ask.replace(i,d[j][k]))
  
+<<<<<<< HEAD
 # input = "i am not happy"
 # print (list(synonyms(input)))
+=======
+# input = "I am happy"
+# print (list(synonyms(input)))
+>>>>>>> 09b944fe034484ca1945b9bae3231cdbff08f068
